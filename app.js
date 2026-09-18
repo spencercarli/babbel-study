@@ -121,6 +121,7 @@ function showNextCard() {
   resetCardPosition();
   currentCard = queue.shift() || null;
   elements.answer.hidden = true;
+  elements.flashcard.setAttribute("aria-expanded", "false");
   elements.scoreActions.hidden = true;
   elements.reveal.hidden = !currentCard;
   elements.tapHint.hidden = !currentCard;
@@ -147,6 +148,7 @@ function showNextCard() {
 function revealAnswer() {
   if (!currentCard || !elements.answer.hidden) return;
   elements.answer.hidden = false;
+  elements.flashcard.setAttribute("aria-expanded", "true");
   elements.scoreActions.hidden = false;
   elements.reveal.hidden = true;
   elements.tapHint.hidden = true;
@@ -187,7 +189,10 @@ function moveSwipe(event) {
 }
 
 function endSwipe(event) {
-  if (dragStartX === null) return;
+  if (dragStartX === null) {
+    revealAnswer();
+    return;
+  }
   if (elements.flashcard.hasPointerCapture(event.pointerId)) elements.flashcard.releasePointerCapture(event.pointerId);
   const threshold = Math.min(110, elements.flashcard.clientWidth * 0.24);
   if (Math.abs(dragOffset) < threshold) {
