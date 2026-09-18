@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "cards": [
+    { "front": "Guten Morgen", "back": "Good morning" },
+    { "front": "Wie geht es dir?", "back": "How are you?" },
+    { "front": "Danke", "back": "Thank you" }
+  ]
+}

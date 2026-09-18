@@ -1,0 +1,11 @@
+{
+  "name": "Field Notes Language Study",
+  "short_name": "Field Notes",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3efe4",
+  "theme_color": "#17231d",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
